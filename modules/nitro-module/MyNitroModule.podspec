@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
     # Implementation (Swift)
     "ios/**/*.{swift}",
     # Autolinking/Registration (Objective-C++)
-    "ios/**/*.{m,mm}",
+    "ios/**/*.{m,mm,cpp,h,hpp}",
   ]
 
   load 'nitrogen/generated/ios/MyNitroModule+autolinking.rb'

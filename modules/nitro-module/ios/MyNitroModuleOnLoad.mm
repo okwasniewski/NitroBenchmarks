@@ -5,15 +5,24 @@
 //  Created by Marc Rousavy on 22.07.24.
 //
 
-#import "HybridMyModuleSpecSwift.hpp"
 #import <Foundation/Foundation.h>
 #import <NitroModules/HybridObjectRegistry.hpp>
+#import "HybridMyModuleSpec.hpp"
 
-namespace MyNitroModule {
-class MyNitroModuleRegistry;
-} // namespace MyNitroModule
+namespace margelo::nitro::mymodule {
 
-#import "MyNitroModule-Swift.h"
+class HybridMyModule: public HybridMyModuleSpec {
+  double addNumbers(double a, double b) {
+    return a + b;
+  }
+  
+  std::string addStrings(const std::string& a, const std::string& b) {
+    return a + b;
+  }
+};
+
+}
+
 
 @interface MyNitroModuleOnLoad : NSObject
 @end
@@ -23,10 +32,12 @@ class MyNitroModuleRegistry;
 using namespace margelo::nitro;
 
 + (void)load {
-  HybridObjectRegistry::registerHybridObjectConstructor("MyModule", []() -> std::shared_ptr<HybridObject> {
-    auto myModule = MyNitroModule::MyNitroModuleRegistry::createMyModule();
-    return std::make_shared<mymodule::HybridMyModuleSpecSwift>(myModule);
-  });
+  HybridObjectRegistry::registerHybridObjectConstructor(
+      "MyModule",
+      []() -> std::shared_ptr<HybridObject> {
+        return std::make_shared<margelo::nitro::mymodule::HybridMyModule>();
+      }
+    );
 }
 
 @end

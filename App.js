@@ -124,15 +124,12 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Text style={{ fontWeight: 'bold', size: 24 }}>ExpoModules vs TurboModules vs NitroModules</Text>
+      <Text style={{ fontWeight: 'bold', size: 24 }}>TurboModules (Pure C++) vs NitroModules (Pure C++)</Text>
 
       <View style={{ height: 50 }} />
 
-      <Text style={{ fontWeight: 'bold', size: 24 }}>Calling addNumbers(...) 100.000x</Text>
+      <Text style={{ fontWeight: 'bold', size: 24 }}>Calling addNumbers(...) {runs}x</Text>
       <View style={{ alignItems: 'flex-end' }}>
-        <Text>
-          ExpoModule.addNumbers(...) took <Text style={{ fontWeight: 'bold' }}>{numberTimes?.expoTime}ms</Text>
-        </Text>
         <Text>
           TurboModule.addNumbers(...) took <Text style={{ fontWeight: 'bold' }}>{numberTimes?.turboTime}ms</Text>
         </Text>
@@ -143,11 +140,8 @@ export default function App() {
 
       <View style={{ height: 50 }} />
 
-      <Text style={{ fontWeight: 'bold', size: 24 }}>Calling addStrings(...) 100.000x</Text>
+      <Text style={{ fontWeight: 'bold', size: 24 }}>Calling addStrings(...) {runs}x</Text>
       <View style={{ alignItems: 'flex-end' }}>
-        <Text>
-          ExpoModule.addStrings(...) took <Text style={{ fontWeight: 'bold' }}>{stringTimes?.expoTime}ms</Text>
-        </Text>
         <Text>
           TurboModule.addStrings(...) took <Text style={{ fontWeight: 'bold' }}>{stringTimes?.turboTime}ms</Text>
         </Text>
